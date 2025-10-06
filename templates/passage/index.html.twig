@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Passage index{% endblock %}
+
+{% block body %}
+    <h1>Passage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ligne</th>
+                <th>HeureEstimee</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for passage in passages %}
+            <tr>
+                <td>{{ passage.id }}</td>
+                <td>{{ passage.ligne }}</td>
+                <td>{{ passage.heureEstimee ? passage.heureEstimee|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_passage_show', {'id': passage.id}) }}">show</a>
+                    <a href="{{ path('app_passage_edit', {'id': passage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_passage_new') }}">Create new</a>
+{% endblock %}

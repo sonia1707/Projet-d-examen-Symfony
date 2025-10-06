@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Arret index{% endblock %}
+
+{% block body %}
+    <h1>Arret index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for arret in arrets %}
+            <tr>
+                <td>{{ arret.id }}</td>
+                <td>{{ arret.nom }}</td>
+                <td>{{ arret.latitude }}</td>
+                <td>{{ arret.longitude }}</td>
+                <td>
+                    <a href="{{ path('app_arret_show', {'id': arret.id}) }}">show</a>
+                    <a href="{{ path('app_arret_edit', {'id': arret.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_arret_new') }}">Create new</a>
+{% endblock %}

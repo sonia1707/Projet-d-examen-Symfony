@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du Passage{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h1 class="h3 mb-0">
+                        <i class="fas fa-eye"></i> Détails du passage
+                    </h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th class="bg-light">Ligne</th>
+                            <td><span class="badge bg-primary fs-6">Ligne {{ passage.ligne }}</span></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Heure estimée</th>
+                            <td>{{ passage.heureEstimee ? passage.heureEstimee|date('d/m/Y H:i') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Arrêt</th>
+                            <td>{{ passage.lieeAArret.nom }}</td>
+                        </tr>
+                    </table>
+
+                    <div class="d-flex gap-2">
+                        <a href="{{ path('app_passage_index') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Retour à la liste
+                        </a>
+                        <a href="{{ path('app_passage_edit', {'id': passage.id}) }}" class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Modifier
+                        </a>
+                        {{ include('passage/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

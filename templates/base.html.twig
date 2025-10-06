@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Localisation Bus{% endblock %}</title>
+
+    {# Bootstrap pour le responsive et FontAwesome pour les icônes #}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    {# bloc extensible pour ajouter des styles spécifiques pour chaque page #}
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+    {# barre de navigation principale avec accès rapide aux sections clés #}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            {# lien vers la page d’accueil avec icône de bus #}
+            <a class="navbar-brand" href="{{ path('app_home') }}">
+                <i class="fas fa-bus"></i> Localisation Bus
+            </a>
+
+            {# liens vers les pages de gestion des entités #}
+            <div class="navbar-nav">
+                <a class="nav-link" href="{{ path('app_arret_index') }}">Arrêts</a>
+                <a class="nav-link" href="{{ path('app_passage_index') }}">Passages</a>
+            </div>
+        </div>
+    </nav>
+
+    {# conteneur principal #}
+    <div class="container mt-4">
+        {% block body %}{% endblock %}
+    </div>
+
+    {# script Bootstrap JS #}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

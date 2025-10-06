@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Localisation Bus{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="jumbotron bg-light p-5 rounded">
+        <h1 class="display-4"><i class="fas fa-bus text-primary"></i> Localisation Bus</h1>
+        <p class="lead">Système de suivi des bus en temps réel</p>
+        <hr class="my-4">
+        
+        <div class="row mt-4">
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><i class="fas fa-map-marker-alt fa-2x text-primary"></i></h5>
+                        <h5 class="card-title">Gestion des Arrêts</h5>
+                        <p class="card-text">Consulter et gérer les arrêts de bus</p>
+                        <a href="{{ path('app_arret_index') }}" class="btn btn-primary">Voir les arrêts</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><i class="fas fa-clock fa-2x text-success"></i></h5>
+                        <h5 class="card-title">Passages des Bus</h5>
+                        <p class="card-text">Consulter les horaires de passage</p>
+                        <a href="{{ path('app_passage_index') }}" class="btn btn-success">Voir les passages</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><i class="fas fa-plus-circle fa-2x text-info"></i></h5>
+                        <h5 class="card-title">Nouvel Arrêt</h5>
+                        <p class="card-text">Ajouter un nouvel arrêt de bus</p>
+                        <a href="{{ path('app_arret_new') }}" class="btn btn-info">Créer un arrêt</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><i class="fas fa-plus-circle fa-2x text-warning"></i></h5>
+                        <h5 class="card-title">Nouveau Passage</h5>
+                        <p class="card-text">Ajouter un nouveau passage de bus</p>
+                        <a href="{{ path('app_passage_new') }}" class="btn btn-warning">Créer un passage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
