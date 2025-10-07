@@ -93,12 +93,12 @@ ligne	              String (10)	           Ligne de bus (A, B, C, D)
 heureEstimee	       DateTime	              Heure de passage estimée
 arret	               Relation	              Arrêt associé (ManyToOne)
 ### Utilisation de l'Application:
--Pour les administrateurs:
+## Pour les administrateurs:
 1.Créer des arrêts : Cliquer sur "Nouvel arrêt" et renseigner nom + coordonnées GPS
 2.Planifier des passages : Ajouter des horaires par ligne pour chaque arrêt
 3.Consulter : Voir tous les arrêts avec leurs passages associés
 4.Filtrer : Utiliser le filtre par ligne pour voir les passages spécifiques
--Données de démonstration:
+## Données de démonstration:
 .Le projet inclut automatiquement :
  1- 5 arrêts : Gare Centrale, Place Ville Marie, Université, Hôpital, Stade
  2- 15 passages avec lignes A, B, C, D et horaires variés
@@ -165,31 +165,6 @@ php -S localhost:8080 -t public
 ```bash
 mysql -u root -p
 ```
-### Structure du Projet
-Projet-d-examen-Symfony/
-├── src/
-│   ├── Controller/          # Contrôleurs Symfony
-│   ├── Entity/              # Entités Doctrine
-│   ├── Repository/          # Repositories de données
-│   └── DataFixtures/        # Données de test
-├── templates/               # Templates Twig
-│   ├── base.html.twig       # Template principal
-│   ├── home/                # Page d'accueil
-│   ├── arret/               # Gestion des arrêts
-│   └── passage/             # Gestion des passages
-├── config/                  # Configuration Symfony
-├── migrations/              # Migrations base de données
-├── public/                  # Fichiers publics
-└── var/                     # Cache et logs
-### API et Routes Disponibles
-URL	                Méthode	              Description
-/	                    GET	               Page d'accueil
-/arret/	              GET	               Liste des arrêts
-/arret/new	         GET/POST	            Créer un arrêt
-/arret/{id}          	GET	               Détails d'un arrêt
-/arret/{id}/edit	   GET/POST           	Modifier un arrêt
-/passage/	            GET	                Liste des passages
-/passage/new	       GET/POST           	Créer un passage
-/passage/{id}	         GET	              Détails d'un passage
+
 
 
